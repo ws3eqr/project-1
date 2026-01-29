@@ -1,0 +1,281 @@
+:root {
+    --bg-color: #050505; /* Почти черный, но мягче */
+    --card-bg: #111111;
+    --text-main: #ffffff;
+    --text-sec: #888888;
+    --accent: #ffffff;
+    --border: #222222;
+    --hover-border: #444444;
+    --gap: 16px;
+    --radius: 24px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 40px 20px;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.logo {
+    font-weight: 800;
+    font-size: 1.5rem;
+    letter-spacing: -1px;
+}
+
+.status {
+    font-size: 0.9rem;
+    color: var(--text-sec);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--card-bg);
+    padding: 6px 12px;
+    border-radius: 100px;
+    border: 1px solid var(--border);
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background-color: #27c93f;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(39, 201, 63, 0.4);
+}
+
+/* Profile Section */
+.profile-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.subtitle {
+    font-size: 0.9rem;
+    color: var(--text-sec);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.name {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -2px;
+    margin-bottom: 20px;
+    background: linear-gradient(to right, #fff, #888);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.bio {
+    max-width: 450px;
+    color: var(--text-sec);
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-primary, .btn-secondary {
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-primary {
+    background-color: var(--accent);
+    color: var(--bg-color);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--text-main);
+    border: 1px solid var(--border);
+}
+
+.btn-secondary:hover {
+    background-color: var(--card-bg);
+    border-color: var(--hover-border);
+}
+
+/* Bento Grid */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--gap);
+    grid-auto-rows: minmax(160px, auto);
+}
+
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.card:hover {
+    border-color: var(--hover-border);
+    transform: translateY(-2px);
+}
+
+.wide {
+    grid-column: span 2;
+}
+
+.tall {
+    grid-row: span 2;
+}
+
+@media (max-width: 768px) {
+    .wide, .tall {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+    .name {
+        font-size: 2.5rem;
+    }
+}
+
+.card-label {
+    color: var(--text-sec);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.card-value {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.card-sub {
+    color: var(--text-sec);
+    font-size: 0.9rem;
+}
+
+/* Skills List inside card */
+.skills-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.skills-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+}
+
+.skills-list li:last-child {
+    border-bottom: none;
+}
+
+.skill-name {
+    font-weight: 500;
+}
+
+.skill-time {
+    color: var(--text-sec);
+    font-size: 0.9rem;
+}
+
+/* Highlight Card */
+.highlight {
+    background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+}
+
+.highlight h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.highlight p {
+    color: var(--text-sec);
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+.link-arrow {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* Animations */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 0.8s ease forwards;
+}
+
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+footer {
+    text-align: center;
+    color: #333;
+    font-size: 0.8rem;
+    margin-top: 20px;
+}
